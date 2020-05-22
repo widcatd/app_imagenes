@@ -1,0 +1,17 @@
+<DashBoard>
+    FloatLayout:
+        id: menu_inicial
+        MDTextField:
+            id: exponencial_c
+            pos_hint:{"x":.35,"top":.6}
+            size_hint:(.3,.1)
+            halign: "center"
+            hint_text: "ingrese el valor de c"
+        MDRaisedButton:
+            pos_hint: {"x":.35,"top":.5}
+            size_hint:(.3,.1)
+            text:"Convertir"
+            on_release:
+                root.op_log(app.temp_archivo,exponencial_c.text)
+                root.manager.current="settings_screen"
+            

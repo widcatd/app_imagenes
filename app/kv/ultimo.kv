@@ -1,0 +1,22 @@
+<Ultimo>
+    FloatLayout:
+        id: menu_inicial2
+        MDTextField:
+            id: exponencial_c1
+            pos_hint:{"x":.35,"top":.6}
+            size_hint:(.3,.1)
+            halign: "center"
+            hint_text: "ingrese el valor de b"
+        MDTextField:
+            id: exponencial_c2
+            pos_hint:{"x":.35,"top":.4}
+            size_hint:(.3,.1)
+            halign: "center"
+            hint_text: "ingrese el valor de c"
+        MDRaisedButton:
+            pos_hint: {"x":.35,"top":.25}
+            size_hint:(.3,.1)
+            text:"Convertir"
+            on_release:
+                root.op_exp(app.temp_archivo,exponencial_c1.text,exponencial_c2.text)
+                root.manager.current="settings_screen"

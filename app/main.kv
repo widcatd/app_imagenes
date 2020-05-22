@@ -1,0 +1,62 @@
+#: include kv/dashboard.kv
+#: include kv/settingsscreen.kv
+#: include kv/ultimo.kv
+#: include kv/mainrtp.kv
+NavigationLayout:
+    id: nav_layout
+    ScreenManager:
+        Screen:
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: app.title
+                    elevation: 10
+                    left_action_items: [["menu",lambda x:nav_drawer.set_state()]]
+
+                MDRaisedButton:
+                    pos_hint: {"x":.4,"top":.3}
+                    size_hint:(.15,.1)
+                    text:"save"
+                    on_release:
+                        app.save()
+                ScreenManager:
+                    id: screen_manager
+                    SettingsScreen:
+                        id: settings_screen
+                        name: "settings_screen"
+                    DashBoard:
+                        id: dashboard
+                        name: "dashboard"
+                    Ultimo:
+                        id:ultimo
+                        name: "ultimo"
+                    MainRtp:
+                        id: mainrtp
+                        name:"mainrtp"
+        
+    MDNavigationDrawer:
+        id: nav_drawer
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "8dp"
+            spacing: "8dp"
+            Image:
+                size_hint:None,None
+                size:"288dp","200dp"
+                source:"logopedorro.jpeg"
+            ScrollView:
+                MDList:
+                    OneLineIconListItem:
+                        text:"DashBoard"
+                        on_release:
+                            screen_manager.current="dashboard"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "wiew-dashboard"
+                    OneLineIconListItem:
+                        text:"Ajustes"
+                        on_release:
+                            screen_manager.current="settings_screen"
+                            nav_drawer.set_state()
+                        IconLeftWidget:
+                            icon: "settings"

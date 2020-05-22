@@ -1,0 +1,40 @@
+<SettingsScreen>
+    FloatLayout:
+        MDRaisedButton:
+            pos_hint: {"x":.02,"top":.15}
+            size_hint:(.10,.1)
+            text:"H.Equa"
+            on_release:
+                root.hist_eq(app.temp_archivo)
+        MDRaisedButton:
+            pos_hint: {"x":.15,"top":.15}
+            size_hint:(.12,.1)
+            text:"C.Stree"
+            on_release:
+                root.contrast_str(app.temp_archivo)
+        MDRaisedButton:
+            pos_hint: {"x":.30,"top":.15}
+            size_hint:(.12,.1)
+            text:"threshol"
+            on_release:
+                root.threshold(app.temp_archivo)
+        MDRaisedButton:
+            pos_hint: {"x":.45,"top":.15}
+            size_hint:(.12,.1)
+            text:"O.Expo"
+            on_release:
+                root.manager.current="dashboard"
+        MDRaisedButton:
+            pos_hint: {"x":.6,"top":.15}
+            size_hint:(.12,.1)
+            text:"O.Log"
+            on_release:
+                root.manager.current="ultimo"
+        MDRaisedButton:
+            pos_hint: {"x":.75,"top":.15}
+            size_hint:(.12,.1)
+            text:"O.Rtp"
+            on_release:
+                root.manager.current="mainrtp"
+            
+    
